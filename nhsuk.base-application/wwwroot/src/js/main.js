@@ -8,8 +8,6 @@ import Checkboxes from '../../../node_modules/nhsuk-frontend/packages/components
 // Polyfills
 import '../../../node_modules/nhsuk-frontend/packages/polyfills';
 
-//import '../scss/main.scss';
-
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
     Details();

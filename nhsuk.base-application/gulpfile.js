@@ -5,7 +5,7 @@ const cleanCss = require('gulp-clean-css');
 const webpack = require('webpack-stream');
 
 const inputDir = './wwwroot/src';
-const outputDir = './wwwroot/dist/';
+const outputDir = './wwwroot/dist';
 
 // Clean wwwroot/dist directory
 function cleanDist() {
@@ -22,10 +22,10 @@ function compileCSS() {
 };
 
 // Compile JS
-function compileJS(mode = 'development') {
+function compileJS() {
   return gulp.src(`${inputDir}/js/main.js`)
     .pipe(webpack({
-      mode,
+      mode: 'production',
       module: {
         rules: [
           {
@@ -63,7 +63,7 @@ gulp.task('build', (done) => {
   // Compile CSS
   compileCSS();
   // Compile JS
-  compileJS('production');
+  compileJS();
   // Finish task with done callback
   return done();
 });

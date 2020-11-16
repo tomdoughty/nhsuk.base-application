@@ -5,7 +5,7 @@
     <RootNamespace>nhsuk.base_application</RootNamespace>
   </PropertyGroup>
 
-  <Target Name="GenerateSomeFiles" BeforeTargets="BeforeBuild">
+  <Target Name="Build frontend" BeforeTargets="BeforeBuild">
     <Exec Command="npm run build" />
     <ItemGroup>
       <Compile Include="**/*$(DefaultLanguageSourceExtension)"
@@ -13,17 +13,4 @@
     </ItemGroup>
   </Target>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\src\" />
-    <Folder Include="wwwroot\dist\" />
-    <Folder Include="wwwroot\src\scss\" />
-    <Folder Include="wwwroot\src\js\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="webpack.config.js">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
 </Project>
