@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nhsuk.base-application", "nhsuk.base-application\nhsuk.base-application.csproj", "{5AF18C8D-889D-4B57-A9B2-E09C2151E02E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AF18C8D-889D-4B57-A9B2-E09C2151E02E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AF18C8D-889D-4B57-A9B2-E09C2151E02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AF18C8D-889D-4B57-A9B2-E09C2151E02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AF18C8D-889D-4B57-A9B2-E09C2151E02E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
