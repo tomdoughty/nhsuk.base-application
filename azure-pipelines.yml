@@ -51,15 +51,14 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: |
-      npm install
-      npm test
+    script: npm install && npm test
     workingDirectory: '$(System.DefaultWorkingDirectory)/AcceptanceTests'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
     publishWebProjects: true
+    workingDirectory: '$(System.DefaultWorkingDirectory)/src/nhsuk.base-application'
     
 - task: AzureRmWebAppDeployment@4
   inputs:
