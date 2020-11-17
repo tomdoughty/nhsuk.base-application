@@ -34,6 +34,23 @@ steps:
 
 - task: DotNetCoreCLI@2
   inputs:
+    command: 'run'
+    projects: '**/*.csproj'
+
+- task: NodeTool@0
+  inputs:
+    versionSpec: '12.x'
+    checkLatest: true
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      npm install
+      npm test
+    workingDirectory: '$(System.DefaultWorkingDirectory)/AcceptanceTests'
+
+- task: DotNetCoreCLI@2
+  inputs:
     command: 'publish'
     publishWebProjects: true
     
