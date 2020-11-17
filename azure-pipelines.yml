@@ -32,3 +32,11 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'nhsuk-development(07748954-52d6-46ce-95e6-2701bfc715b4)'
+    appType: 'webApp'
+    WebAppName: 'nhsuk-base-application-dev-uks'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
