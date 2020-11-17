@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nhsuk.base-application", "nhsuk.base-application\nhsuk.base-application.csproj", "{5AF18C8D-889D-4B57-A9B2-E09C2151E02E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nhsuk.base-application.UnitTests", "nhsuk.base-application.UnitTests\nhsuk.base-application.UnitTests.csproj", "{4B547C85-BE34-4B5B-8A60-EB6A5201D4A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +15,9 @@ Global
 		{5AF18C8D-889D-4B57-A9B2-E09C2151E02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AF18C8D-889D-4B57-A9B2-E09C2151E02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AF18C8D-889D-4B57-A9B2-E09C2151E02E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B547C85-BE34-4B5B-8A60-EB6A5201D4A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B547C85-BE34-4B5B-8A60-EB6A5201D4A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B547C85-BE34-4B5B-8A60-EB6A5201D4A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B547C85-BE34-4B5B-8A60-EB6A5201D4A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
