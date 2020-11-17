@@ -24,7 +24,8 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    workingDirectory: '/src/nhsuk.base-application'
+    projects: '**/*.csproj'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/src/nhsuk.base-application'
 
 - task: DotNetCoreCLI@2
   inputs:
