@@ -404,4 +404,8 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 
+# Compiled CSS and JS
 */wwwroot/dist/
+
+# Acceptance tests
+AcceptanceTests/output/
