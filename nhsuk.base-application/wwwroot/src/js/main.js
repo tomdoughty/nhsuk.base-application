@@ -10,7 +10,6 @@ import '../../../node_modules/nhsuk-frontend/packages/polyfills';
 
 // Initialize components
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('hello tom');
     Details();
     Header();
     SkipLink();
