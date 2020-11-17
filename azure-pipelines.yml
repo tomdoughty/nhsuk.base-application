@@ -31,11 +31,17 @@ steps:
     command: 'test'
     projects: '**/*.csproj'
     workingDirectory: '$(System.DefaultWorkingDirectory)/src/nhsuk.base-application.UnitTests'
-
-- task: DotNetCoreCLI@2
+    
+- task: AzurePowerShell@5
   inputs:
-    command: 'run'
-    projects: '**/*.csproj'
+    azureSubscription: 'nhsuk-development(07748954-52d6-46ce-95e6-2701bfc715b4)'
+    ScriptType: 'InlineScript'
+    Inline: |
+      Start-Process powershell -ArgumentList "-NoProfile", "-NonInteractive", "-NoExit", {
+          dotnet run
+      }
+    FailOnStandardError: true
+    workingDirectory: '$(System.DefaultWorkingDirectory)/src/nhsuk.base-application'
 
 - task: NodeTool@0
   inputs:
