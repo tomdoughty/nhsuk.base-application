@@ -20,18 +20,18 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: '**/*.csproj'
-
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
     projects: '**/*.csproj'
     workingDirectory: '$(System.DefaultWorkingDirectory)/src/nhsuk.base-application.UnitTests'
     
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/src/nhsuk.base-application'
+
 - task: AzurePowerShell@5
   inputs:
     azureSubscription: 'nhsuk-development(07748954-52d6-46ce-95e6-2701bfc715b4)'
@@ -41,6 +41,7 @@ steps:
           dotnet run
       }
     FailOnStandardError: true
+    preferredAzurePowerShellVersion: '3.1.0'
     workingDirectory: '$(System.DefaultWorkingDirectory)/src/nhsuk.base-application'
 
 - task: NodeTool@0
