@@ -15,18 +15,10 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: DotNetCoreCLI@2
-  displayName: Restore
-  inputs:
-    command: 'restore'
-    projects: 'src/nhsuk.base-application.sln'
-    feedsToUse: 'select'
-    vstsFeed: '13eed35a-d189-4b55-8953-3ae15c870a46/464ae712-8b3e-48ba-8c88-9b935dc0336a'
-
 - task: NuGetCommand@2
   inputs:
     command: 'restore'
-    restoreSolution: '**/*.sln'
+    restoreSolution: 'src/nhsuk.base-application.sln'
     feedsToUse: 'select'
     vstsFeed: '13eed35a-d189-4b55-8953-3ae15c870a46/464ae712-8b3e-48ba-8c88-9b935dc0336a'
 
