@@ -16,6 +16,7 @@ variables:
 
 steps:
 - task: NuGetCommand@2
+  displayName: Restore
   inputs:
     command: 'restore'
     restoreSolution: 'src/nhsuk.base-application.sln'
@@ -35,8 +36,15 @@ steps:
     command: 'build'
     projects: '**/*.csproj'
     workingDirectory: '$(System.DefaultWorkingDirectory)/src/nhsuk.base-application'
+
+- task: DotNetCoreCLI@2
+  displayName: Publish
+  inputs:
+    command: 'publish'
     publishWebProjects: true
-    
+    arguments: '--no-build'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/src/nhsuk.base-application'
+
 - task: AzureRmWebAppDeployment@4
   displayName: Deploy
   inputs:
