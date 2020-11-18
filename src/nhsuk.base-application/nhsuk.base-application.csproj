@@ -5,6 +5,9 @@
     <RootNamespace>nhsuk.base_application</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NhsUk.header-footer-api-client" Version="2.1.0" />
+  </ItemGroup>
   <Target Name="Build frontend" BeforeTargets="BeforeBuild">
     <Exec Command="npm run build" />
     <ItemGroup>

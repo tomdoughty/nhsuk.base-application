@@ -20,6 +20,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
+
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
@@ -31,34 +32,7 @@ steps:
     command: 'build'
     projects: '**/*.csproj'
     workingDirectory: '$(System.DefaultWorkingDirectory)/src/nhsuk.base-application'
-
-- task: AzurePowerShell@5
-  inputs:
-    azureSubscription: 'nhsuk-development(07748954-52d6-46ce-95e6-2701bfc715b4)'
-    ScriptType: 'InlineScript'
-    Inline: |
-      Start-Process powershell -ArgumentList "-NoProfile", "-NonInteractive", "-NoExit", {
-          dotnet run
-      }
-    FailOnStandardError: true
-    preferredAzurePowerShellVersion: '3.1.0'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/src/nhsuk.base-application'
-
-- task: NodeTool@0
-  inputs:
-    versionSpec: '12.x'
-    checkLatest: true
-
-- task: CmdLine@2
-  inputs:
-    script: npm install && npm test
-    workingDirectory: '$(System.DefaultWorkingDirectory)/AcceptanceTests'
-
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'publish'
     publishWebProjects: true
-    workingDirectory: '$(System.DefaultWorkingDirectory)/src/nhsuk.base-application'
     
 - task: AzureRmWebAppDeployment@4
   inputs:

@@ -1,13 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using NhsUk.HeaderFooterApiClient;
+using NhsUk.HeaderFooterApiClient.Interfaces;
+using NhsUk.HeaderFooterApiClient.Models;
 
 namespace nhsuk.base_application
 {
@@ -24,6 +30,19 @@ namespace nhsuk.base_application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddHttpClient();
+
+            services.AddScoped<IHeaderFooterApiClientReader, HeaderFooterApi>(sp =>
+            {
+                var apiReaderOptions = new ApiReaderOptions(
+                    sp.GetService<IHttpClientFactory>(),
+                    Guid.Parse(Configuration["HeaderFooterApi:SubscriptionKey"]),
+                    Configuration["HeaderFooterApi:EndPointBaseUrl"]
+                );
+                return new HeaderFooterApi(apiReaderOptions, sp.GetService<IMemoryCache>(),
+                    int.Parse(Configuration["HeaderFooterApi:CacheExpiryTimeInMinutes"]), sp.GetService<ILogger<HeaderFooterApi>>());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
