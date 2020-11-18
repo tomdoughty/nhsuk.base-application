@@ -20,7 +20,7 @@ steps:
     command: 'restore'
     restoreSolution: 'src/nhsuk.base-application.sln'
     feedsToUse: 'config'
-    nugetConfigPath: 'src/nhsuk.base-application'
+    nugetConfigPath: 'src/nhsuk.base-application/nuget.config'
 
 - task: DotNetCoreCLI@2
   displayName: Test
