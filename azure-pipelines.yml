@@ -15,11 +15,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
     command: 'restore'
-    restoreSolution: 'src/nhsuk.base-application.sln'
+    projects: '**/*.csproj'
     feedsToUse: 'config'
     nugetConfigPath: 'src/nhsuk.base-application/nuget.config'
 
