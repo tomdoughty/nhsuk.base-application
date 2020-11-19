@@ -405,7 +405,7 @@ ASALocalRun/
 .localhistory/
 
 # Compiled CSS and JS
-*/wwwroot/dist/
+src/nhsuk.base-application/wwwroot/dist/
 
 # Acceptance tests
 AcceptanceTests/output/

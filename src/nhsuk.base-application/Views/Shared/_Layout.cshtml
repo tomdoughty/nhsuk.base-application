@@ -15,6 +15,7 @@
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
     <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
     @await Component.InvokeAsync("Header")
+    <partial name="_Breadcrumb" model='ViewData["Breadcrumbs"]' />
     @RenderBody()
     @await Component.InvokeAsync("Footer")
 </body>

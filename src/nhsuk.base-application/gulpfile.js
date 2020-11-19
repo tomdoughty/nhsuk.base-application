@@ -7,11 +7,6 @@ const webpack = require('webpack-stream');
 const inputDir = './wwwroot/src';
 const outputDir = './wwwroot/dist';
 
-// Clean wwwroot/dist directory
-function cleanDist() {
-  return del(outputDir);
-};
-
 // Compile SCSS into a single CSS file
 function compileCSS() { 
   return gulp.src(`${inputDir}/scss/main.scss`)
@@ -48,18 +43,25 @@ function compileJS() {
 
 // Copy images
 function copyImages() {
-  return gulp.src(`${inputDir}/images`)
+  return gulp.src(`${inputDir}/images/**/*`)
     .pipe(gulp.dest(`${outputDir}/images`));
 };
 
-// Default task called by running `npm run start`
-gulp.task('default', () => {
+// Build function to be used in Gulp tasks
+const build = async () => {
+  // Clean wwwroot/dist directory
+  await  del(outputDir);
   // Compile CSS
   compileCSS();
   // Compile JS
   compileJS();
   // Copy images
   copyImages();
+}
+
+// Default task called by running `npm run start`
+gulp.task('default', () => {
+  build();
   // Watch src CSS and recompile on changes
   gulp.watch(`${inputDir}/scss/**/*.scss`, gulp.series([compileCSS]));
   // Watch src JS and recompile on changes
@@ -67,14 +69,6 @@ gulp.task('default', () => {
 });
 
 gulp.task('build', (done) => {
-  // Clean dist
-  cleanDist()
-  // Compile CSS
-  compileCSS();
-  // Compile JS
-  compileJS();
-  // Copy images
-  copyImages();
-  // Finish task with done callback
+  build();
   return done();
 });
