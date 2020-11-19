@@ -44,7 +44,7 @@ The task `gulp build` will build CSS and JS assets and add them to `wwwroot/dist
 The task `gulp` does the same as gulp build but adds a watch to recompile assets as they change in `wwwroot/src/**/*`.
 
 ### SCSS
-A single JavaScript file exists as `wwwroot/src/main.scss`.
+A single SCSS file exists at `wwwroot/src/main.scss`.
 
 This file imports the required SCSS from NHS.UK frontend library.
 
@@ -55,7 +55,7 @@ The Gulp tasks compile this file into CSS and minify it for production.
 The resulting JavaScript is saved in `wwwroot/dist/main.css`. _This file is not commited to the repository._
 
 ### JavaScript
-A single JavaScript file exists as `wwwroot/src/main.js`.
+A single JavaScript file exists at `wwwroot/src/main.js`.
 
 This file imports the required JavaScript from NHS.UK frontend library.
 
