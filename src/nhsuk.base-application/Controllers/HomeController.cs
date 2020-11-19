@@ -20,11 +20,7 @@ namespace nhsuk.base_application.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            ViewData["Breadcrumbs"] = new BreadcrumbViewModel(new List<BreadcrumbLink>());
             return View();
         }
 

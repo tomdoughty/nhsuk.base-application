@@ -1,0 +1,13 @@
+﻿@if (ViewBag.AdobeAnalyticsScriptUrl != null && ViewBag.adobeAnalyticsData != null)
+{
+    var scripturl = ViewBag.AdobeAnalyticsScriptUrl;
+    <script src="@scripturl" type="text/plain" data-cookieconsent="statistics" defer></script>
+    <script type="text/javascript">
+        window.digitalData = {
+            "page": {
+                "pageInfo": { "pageName": "@ViewBag.adobeAnalyticsData.PageName" },
+                "category": @Html.Raw(ViewBag.adobeAnalyticsData.Categories)
+            }
+        };
+    </script>
+}

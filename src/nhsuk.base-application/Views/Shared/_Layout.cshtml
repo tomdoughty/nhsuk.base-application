@@ -1,24 +1,18 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="@ViewData["Description"]" />
-    <title>@ViewData["Title"] - NHS.UK</title>
-
-    <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
-    <link rel="stylesheet" href="~/dist/main.css" />
-
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font" crossorigin>
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font" crossorigin>
-
-    <script src="~/dist/main.js" asp-append-version="true" type="text/javascript" data-cookieconsent="necessary" defer></script>
-    <script src="https://assets.nhs.uk/scripts/cookie-consent.js" type="text/javascript" data-cookieconsent="necessary" defer></script>
+    <partial name="_Metadata" />
+    <partial name="_AssetsPrefetch" />
+    <partial name="_CSSReferences" />
+    <partial name="_FontReferences" />
+    <partial name="_JavascriptReferences" />
+    <partial name="_AdobeAnalyticsScript" />
+    <partial name="_HotjarScript" />
+    <partial name="_NhsukJavaScriptSettings" />
+    <partial name="_Favicons" />
 </head>
 <body>
     <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
-
     <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
     @await Component.InvokeAsync("Header")
     @RenderBody()

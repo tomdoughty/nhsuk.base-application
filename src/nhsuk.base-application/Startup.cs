@@ -59,6 +59,9 @@ namespace nhsuk.base_application
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+
+            app.UsePathBase("/service-name");
+
             app.UseStaticFiles();
 
             app.UseRouting();
