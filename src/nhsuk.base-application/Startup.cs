@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using nhsuk.base_application.Configuration;
+using nhsuk.base_application.ServiceFilter;
 using NhsUk.HeaderFooterApiClient;
 using NhsUk.HeaderFooterApiClient.Interfaces;
 using NhsUk.HeaderFooterApiClient.Models;
@@ -32,6 +34,10 @@ namespace nhsuk.base_application
             services.AddControllersWithViews();
 
             services.AddHttpClient();
+
+            services.AddSingleton<IAppSettings, AppSettings>();
+
+            services.AddScoped<ConfigSettingsAttribute>();
 
             services.AddScoped<IHeaderFooterApiClientReader, HeaderFooterApi>(sp =>
             {
