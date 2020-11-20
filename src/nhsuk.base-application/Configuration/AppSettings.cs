@@ -5,10 +5,10 @@
     {
         public AppSettings(IConfiguration configuration)
         {
-            CookiebotUrl = configuration["CookiebotUrl"];
+            CookieScriptUrl = configuration["CookieScriptUrl"];
             AdobeAnalyticsScriptUrl = configuration["AdobeAnalyticsScriptUrl"];
         }
-        public string CookiebotUrl { get; set; }
+        public string CookieScriptUrl { get; set; }
         public string AdobeAnalyticsScriptUrl { get; set; }
     }
 

@@ -2,7 +2,7 @@
 {
     public interface IAppSettings
     {
-        string CookiebotUrl { get; }
+        string CookieScriptUrl { get; }
         string AdobeAnalyticsScriptUrl { get; }
     }
 }

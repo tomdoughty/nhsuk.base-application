@@ -27,7 +27,7 @@
                 AdobeAnalyticsDigitalDataViewModel AdobeAnalyticsData = new AdobeAnalyticsDigitalDataViewModel(context.HttpContext);
                 BreadcrumbViewModel BreadcrumbData = new BreadcrumbViewModel(new List<BreadcrumbLink>());
 
-                controller.ViewBag.CookiebotUrl = _appSetting.CookiebotUrl;
+                controller.ViewBag.CookieScriptUrl = _appSetting.CookieScriptUrl;
                 controller.ViewBag.AdobeAnalyticsScriptUrl = _appSetting.AdobeAnalyticsScriptUrl;
                 controller.ViewBag.AdobeAnalyticsPageName = AdobeAnalyticsData.PageName;
                 controller.ViewBag.AdobeAnalyticsCategories = AdobeAnalyticsData.Categories;

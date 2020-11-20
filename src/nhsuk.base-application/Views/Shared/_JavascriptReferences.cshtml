@@ -1,2 +1,5 @@
 ﻿<script src="~/dist/main.js" type="text/javascript" data-cookieconsent="necessary" defer></script>
-<script src="@ViewBag.CookiebotUrl" type="text/javascript" data-cookieconsent="necessary" defer></script>
+@if (ViewBag.CookieScriptUrl != null)
+{
+  <script src="@ViewBag.CookieScriptUrl" type="text/javascript" data-cookieconsent="necessary" defer></script>
+}

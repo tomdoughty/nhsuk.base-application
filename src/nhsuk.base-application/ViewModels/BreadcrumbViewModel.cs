@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace nhsuk.base_application.Models
+namespace nhsuk.base_application.ViewModels
 {
     public class BreadcrumbViewModel
     {
