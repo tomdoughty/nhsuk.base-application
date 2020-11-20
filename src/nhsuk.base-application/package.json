@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install && nrpm run lint && gulp build",
+    "build": "npm install && npm run lint && gulp build",
     "start": "gulp",
     "lint": "eslint wwwroot/src"
   },
