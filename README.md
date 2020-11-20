@@ -52,7 +52,7 @@ Any custom SCSS can be added or imported into this file.
 
 The Gulp tasks compile this file into CSS and minify it for production.
 
-The resulting JavaScript is saved in `wwwroot/dist/main.css`. _This file is not commited to the repository._
+The resulting JavaScript is saved in `wwwroot/dist/main.css`. _This file is not commited to the repository_.
 
 ### JavaScript
 A single JavaScript file exists as `wwwroot/src/main.js`.
@@ -65,6 +65,13 @@ The Gulp tasks transpile this file into ES5 JavaScript using Babel and minify it
 
 The resulting JavaScript is saved in `wwwroot/dist/main.js`. _This file is not commited to the repository_.
 
-
 ### NHS.UK header and footer Nuget package
 The header and footer are dynamically built by the `nhsuk.header-and-footer-client` Nuget package.
+
+### Adobe analytics
+Adobe analytics script is loaded in based on `AdobeAnalyticsScriptUrl` set in `appsettings.json`.
+
+Adobe analytics `digitalData` object is built dynamically from application URL.
+
+### Cookie banner
+NHS.UK cookier banner is loaded in based on `AdobeAnalyticsScriptUrl` set in `appsettings.json`.
