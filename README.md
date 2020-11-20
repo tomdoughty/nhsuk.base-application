@@ -1,5 +1,10 @@
 # nhsuk.base-application
+
+[![Build Status](https://dev.azure.com/nhsuk/nhsuk.base-application/_apis/build/status/tomdoughty.nhsuk.base-application?branchName=main)](https://dev.azure.com/nhsuk/nhsuk.base-application/_build/latest?definitionId=658&branchName=main)
+
 A .NET project which include some of the common things needed at NHS.UK.
+
+[View the latest deployment of main branch](https://nhsuk-base-application-dev-uks.azurewebsites.net/service-name).
 
 ## Overview
 
