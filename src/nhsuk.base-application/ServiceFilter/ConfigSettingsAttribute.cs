@@ -23,13 +23,11 @@
         {
             if (context.Controller is Controller controller)
             {
-                AdobeAnalyticsDigitalDataViewModel AdobeAnalyticsData = new AdobeAnalyticsDigitalDataViewModel(context.HttpContext);
+                AdobeAnalyticsViewModel AdobeAnalyticsData = new AdobeAnalyticsViewModel(context.HttpContext, _appSetting);
                 BreadcrumbViewModel BreadcrumbData = new BreadcrumbViewModel(new List<BreadcrumbLink>());
 
                 controller.ViewBag.CookieScriptUrl = _appSetting.CookieScriptUrl;
-                controller.ViewBag.AdobeAnalyticsScriptUrl = _appSetting.AdobeAnalyticsScriptUrl;
-                controller.ViewBag.AdobeAnalyticsPageName = AdobeAnalyticsData.PageName;
-                controller.ViewBag.AdobeAnalyticsCategories = AdobeAnalyticsData.Categories;
+                controller.ViewBag.AdobeAnalytics = AdobeAnalyticsData;
                 controller.ViewBag.Breadcrumbs = BreadcrumbData;
             }
         }

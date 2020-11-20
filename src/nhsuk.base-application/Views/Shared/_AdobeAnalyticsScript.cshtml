@@ -1,12 +1,13 @@
-﻿@if (ViewBag.AdobeAnalyticsScriptUrl != null && ViewBag.AdobeAnalyticsPageName != null && ViewBag.AdobeAnalyticsPageName != null)
+﻿@model nhsuk.base_application.ViewModels.AdobeAnalyticsViewModel
+
+@if (Model != null && Model.ScriptUrl != null && Model.PageName != null && Model.Categories != null)
 {
-    var scripturl = ViewBag.AdobeAnalyticsScriptUrl;
-    <script src="@scripturl" type="text/plain" data-cookieconsent="statistics" defer></script>
+    <script src="@Model.ScriptUrl" type="text/plain" data-cookieconsent="statistics" defer></script>
     <script type="text/javascript">
         window.digitalData = {
             "page": {
-                "pageInfo": { "pageName": "@ViewBag.AdobeAnalyticsPageName" },
-                "category": @Html.Raw(ViewBag.AdobeAnalyticsCategories)
+                "pageInfo": { "pageName": "@Model.PageName" },
+                "category": @Html.Raw(@Model.Categories)
             }
         };
     </script>

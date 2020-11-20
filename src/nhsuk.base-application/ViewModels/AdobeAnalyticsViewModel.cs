@@ -5,11 +5,14 @@
     using System.Linq;
     using Microsoft.AspNetCore.Http;
     using Newtonsoft.Json;
+    using nhsuk.base_application.Configuration;
 
-    public class AdobeAnalyticsDigitalDataViewModel
+    public class AdobeAnalyticsViewModel
     {
-        public AdobeAnalyticsDigitalDataViewModel(HttpContext context)
+        public AdobeAnalyticsViewModel(HttpContext context, IAppSettings appSetting)
         {
+            ScriptUrl = appSetting.AdobeAnalyticsScriptUrl;
+
             string url = context.Request.PathBase + context.Request.Path;
 
             List<string> urlFragments =
@@ -18,8 +21,8 @@
                     .Split('/', StringSplitOptions.RemoveEmptyEntries)
                     .ToList()
                 ?? new List<string>();
-            var pageName = "nhs:web:";
-            PageName = pageName + string.Join(":", urlFragments);
+
+            PageName = "nhs:web:" + string.Join(":", urlFragments);
 
             Dictionary<string, string> categories = new Dictionary<string, string>
             {
@@ -34,6 +37,8 @@
 
             Categories = JsonConvert.SerializeObject(categories);
         }
+
+        public string ScriptUrl { get; }
 
         public string PageName { get; }
 
