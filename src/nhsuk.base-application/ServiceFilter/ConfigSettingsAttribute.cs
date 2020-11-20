@@ -4,7 +4,6 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Filters;
     using nhsuk.base_application.Configuration;
-    using nhsuk.base_application.Models;
     using nhsuk.base_application.ViewModels;
 
     public class ConfigSettingsAttribute : IActionFilter

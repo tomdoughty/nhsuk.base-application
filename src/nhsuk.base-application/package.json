@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install && gulp build",
-    "start": "gulp"
+    "build": "npm install && nrpm run lint && gulp build",
+    "start": "gulp",
+    "lint": "eslint wwwroot/src"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,8 @@
     "@babel/preset-env": "^7.12.1",
     "babel-loader": "^8.2.1",
     "del": "^6.0.0",
+    "eslint": "^7.13.0",
+    "eslint-config-nhsuk": "^1.0.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-sass": "^4.1.0",
