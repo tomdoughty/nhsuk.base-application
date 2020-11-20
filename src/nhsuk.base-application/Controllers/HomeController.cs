@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using nhsuk.base_application.Models;
 using nhsuk.base_application.ServiceFilter;
@@ -16,7 +15,6 @@ namespace nhsuk.base_application.Controllers
 
         public IActionResult Index()
         {
-            ViewData["Breadcrumbs"] = new BreadcrumbViewModel(new List<BreadcrumbLink>());
             return View();
         }
 
