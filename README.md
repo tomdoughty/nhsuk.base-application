@@ -74,4 +74,4 @@ Adobe analytics script is loaded in based on `AdobeAnalyticsScriptUrl` set in `a
 Adobe analytics `digitalData` object is built dynamically from application URL.
 
 ### Cookie banner
-NHS.UK cookier banner is loaded in based on `AdobeAnalyticsScriptUrl` set in `appsettings.json`.
+NHS.UK cookier banner is loaded in based on `CookieScriptUrl` set in `appsettings.json`.

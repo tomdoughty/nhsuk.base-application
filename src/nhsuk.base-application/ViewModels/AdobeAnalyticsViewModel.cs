@@ -1,12 +1,12 @@
-﻿namespace nhsuk.base_application.ViewModels
-{
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Microsoft.AspNetCore.Http;
-    using Newtonsoft.Json;
-    using nhsuk.base_application.Configuration;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using nhsuk.base_application.Configuration;
 
+namespace nhsuk.base_application.ViewModels
+{
     public class AdobeAnalyticsViewModel
     {
         public AdobeAnalyticsViewModel(HttpContext context, IAppSettings appSetting)

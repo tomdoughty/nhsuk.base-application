@@ -11,6 +11,10 @@
     <PackageReference Include="NUnit" Version="3.12.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="Moq" Version="4.15.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\nhsuk.base-application\nhsuk.base-application.csproj" />
+  </ItemGroup>
 </Project>
