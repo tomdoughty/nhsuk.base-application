@@ -1,10 +1,12 @@
 version: '3'
 
 services:
-  find-a-service:
-    image: find-a-service
+  base-application:
+    image: base-application
     build:
       context: .
       dockerfile: Dockerfile
+      args: 
+        nuget_pat: ${NUGET_PAT}
     ports:
       - "8080:80"

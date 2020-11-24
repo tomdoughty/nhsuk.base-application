@@ -80,3 +80,6 @@ Adobe analytics `digitalData` object is built dynamically from application URL.
 
 ### Cookie banner
 NHS.UK cookier banner is loaded in based on `CookieScriptUrl` set in `appsettings.json`.
+
+### Docker
+To run the application with Docker you need to generate a Personal Access Token in Azure Devops and pass this to `docker-compose` to run the application.
