@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  find-a-service:
+    image: find-a-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
