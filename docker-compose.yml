@@ -1,15 +1,12 @@
 version: '3'
 
 services:
-  base-application:
-    image: base-app
+  nhsuk.base-application:
+    image: nhsuk.base-application
     build:
       context: .
       dockerfile: Dockerfile
       args: 
         nuget_pat: ${NUGET_PAT}
     ports:
-      - 5000:5000
-    volumes:
-      - './:/app'
-      - /src/nhsuk.base-application/node_modules
+      - 8080:80
