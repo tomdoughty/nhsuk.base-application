@@ -2,6 +2,8 @@ using System;
 using System.Net.Http;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +29,8 @@ namespace nhsuk.base_application
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAntiforgery(options => options.Cookie.SecurePolicy = CookieSecurePolicy.Always);
+
             services.AddControllersWithViews();
 
             services.AddHttpClient();
@@ -34,6 +38,14 @@ namespace nhsuk.base_application
             services.AddSingleton<IAppSettings, AppSettings>();
 
             services.AddScoped<ConfigSettingsAttribute>();
+
+            services.AddScoped<RedirectEmptySessionData>();
+
+            services.Configure<CookieTempDataProviderOptions>(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+            });
 
             services.AddScoped<IHeaderFooterApiClientReader, HeaderFooterApi>(sp =>
             {
@@ -70,12 +82,7 @@ namespace nhsuk.base_application
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseEndpoints(endpoints => endpoints.MapControllers());
         }
     }
 }

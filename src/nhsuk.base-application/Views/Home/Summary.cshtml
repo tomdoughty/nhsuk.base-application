@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Check your answers";
+}
+@model SummaryViewModel
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <partial name="_NhsErrorSummary" />
+}
+
+<h1>@ViewBag.Title</h1>
+
+<dl class="nhsuk-summary-list nhsuk-!-margin-bottom-9">
+    <div class="nhsuk-summary-list__row">
+        <dt class="nhsuk-summary-list__key">
+            Name
+        </dt>
+        <dd class="nhsuk-summary-list__value">
+            @Model.Address
+        </dd>
+        <dd class="nhsuk-summary-list__actions">
+            <a class="nhsuk-link" asp-action="Address">
+                Change<span class="nhsuk-u-visually-hidden"> address</span>
+            </a>
+        </dd>
+    </div>
+</dl>
+
+<form method="post">
+    <button class="nhsuk-button" type="submit">Send</button>
+</form>

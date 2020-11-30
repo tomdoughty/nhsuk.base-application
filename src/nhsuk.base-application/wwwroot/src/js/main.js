@@ -4,6 +4,7 @@ import SkipLink from 'nhsuk-frontend/packages/components/skip-link/skip-link';
 import Details from 'nhsuk-frontend/packages/components/details/details';
 import Radios from 'nhsuk-frontend/packages/components/radios/radios';
 import Checkboxes from 'nhsuk-frontend/packages/components/checkboxes/checkboxes';
+import FormValidation from './formValidation';
 
 // Polyfills
 import 'nhsuk-frontend/packages/polyfills';
@@ -15,4 +16,5 @@ document.addEventListener('DOMContentLoaded', () => {
   SkipLink();
   Radios();
   Checkboxes();
+  FormValidation();
 });

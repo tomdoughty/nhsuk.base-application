@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Question = "What is your address?";
+    ViewBag.Title = (!ViewData.ModelState.IsValid ? "Error: " : null) + ViewBag.Question;
+    ViewBag.Description = "Enter name example page";
+}
+@model AddressViewModel
+
+<form method="post">
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <partial name="_ErrorSummary" />
+    }
+
+    <fieldset class="nhsuk-fieldset">
+        <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+            <h1 class="nhsuk-fieldset__heading">
+                @ViewBag.Question
+            </h1>
+        </legend>
+
+
+        <nhs-form-group nhs-validation-for="Line1">
+            <label class="nhsuk-label" for="Line1">
+                Building and street <span class="nhsuk-u-visually-hidden">line 1 of 2</span>
+            </label>
+            <span nhs-validation-for="Line1" id="nhsuk-error__Line1"></span>
+            <input class="nhsuk-input nhsuk-input--width-30"
+                    asp-for="Line1"
+                    error-class-toggle="nhsuk-input--error"
+                    aria-describedby="nhsuk-error__Line1" />
+        </nhs-form-group>
+
+        <nhs-form-group nhs-validation-for="Line2">
+            <label class="nhsuk-label" for="Line2">
+                <span class="nhsuk-u-visually-hidden">Building and street line 2 of 2</span>
+            </label>
+            <input class="nhsuk-input nhsuk-input--width-30"
+                    asp-for="Line2"
+                    error-class-toggle="nhsuk-input--error" />
+        </nhs-form-group>
+
+        <nhs-form-group nhs-validation-for="Town">
+            <label class="nhsuk-label" for="Town">
+                Town or city
+            </label>
+            <span nhs-validation-for="Town" id="nhsuk-error__Town"></span>
+            <input class="nhsuk-input nhsuk-input--width-30"
+                    asp-for="Town"
+                    error-class-toggle="nhsuk-input--error"
+                    aria-describedby="nhsuk-error__Town" />
+        </nhs-form-group>
+
+        <nhs-form-group nhs-validation-for="County">
+            <label class="nhsuk-label" for="County">
+                County
+            </label>
+            <input class="nhsuk-input nhsuk-input--width-30"
+                    asp-for="County"
+                    error-class-toggle="nhsuk-input--error" />
+        </nhs-form-group>
+
+        <nhs-form-group nhs-validation-for="Postcode">
+            <label class="nhsuk-label" for="Postcode">
+                Postcode
+            </label>
+            <span nhs-validation-for="Postcode" id="nhsuk-error__Postcode"></span>
+            <input class="nhsuk-input nhsuk-input--width-30"
+                    asp-for="Postcode"
+                    error-class-toggle="nhsuk-input--error"
+                    aria-describedby="nhsuk-error__Postcode" />
+        </nhs-form-group>
+
+    </fieldset>
+
+    <button class="nhsuk-button" type="submit">Continue </button>
+</form>

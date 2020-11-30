@@ -1,11 +1,7 @@
 ﻿@{
-    ViewData["Title"] = "Home Page Title";
-    ViewData["Description"] = "Home Page Description";
+    ViewBag.Title = "Home Page Title";
+    ViewBag.Description = "Home Page Description";
 }
 
-<main id="maincontent" class="nhsuk-main-wrapper">
-    <div class="nhsuk-width-container">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    </div>
-</main>
+<h1>NHS.UK base application</h1>
+<p>View an <a asp-action="Address">example form</a> including validation where steps are stored in temp data.</p>
