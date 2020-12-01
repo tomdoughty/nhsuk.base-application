@@ -12,9 +12,9 @@ using Microsoft.Extensions.Logging;
 using nhsuk.base_application.Configuration;
 using nhsuk.base_application.Repositories;
 using nhsuk.base_application.ServiceFilter;
-using NhsUk.HeaderFooterApiClient;
-using NhsUk.HeaderFooterApiClient.Interfaces;
-using NhsUk.HeaderFooterApiClient.Models;
+// using NhsUk.HeaderFooterApiClient;
+// using NhsUk.HeaderFooterApiClient.Interfaces;
+// using NhsUk.HeaderFooterApiClient.Models;
 
 namespace nhsuk.base_application
 {
@@ -50,16 +50,17 @@ namespace nhsuk.base_application
                 options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
             });
 
-            services.AddScoped<IHeaderFooterApiClientReader, HeaderFooterApi>(sp =>
-            {
-                var apiReaderOptions = new ApiReaderOptions(
-                    sp.GetService<IHttpClientFactory>(),
-                    Guid.Parse(Configuration["HeaderFooterApi:SubscriptionKey"]),
-                    Configuration["HeaderFooterApi:EndPointBaseUrl"]
-                );
-                return new HeaderFooterApi(apiReaderOptions, sp.GetService<IMemoryCache>(),
-                    int.Parse(Configuration["HeaderFooterApi:CacheExpiryTimeInMinutes"]), sp.GetService<ILogger<HeaderFooterApi>>());
-            });
+            // Uncomment to use the header and footer Nuget package
+            // services.AddScoped<IHeaderFooterApiClientReader, HeaderFooterApi>(sp =>
+            // {
+            //     var apiReaderOptions = new ApiReaderOptions(
+            //         sp.GetService<IHttpClientFactory>(),
+            //         Guid.Parse(Configuration["HeaderFooterApi:SubscriptionKey"]),
+            //         Configuration["HeaderFooterApi:EndPointBaseUrl"]
+            //     );
+            //     return new HeaderFooterApi(apiReaderOptions, sp.GetService<IMemoryCache>(),
+            //         int.Parse(Configuration["HeaderFooterApi:CacheExpiryTimeInMinutes"]), sp.GetService<ILogger<HeaderFooterApi>>());
+            // });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

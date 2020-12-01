@@ -5,9 +5,9 @@
     <RootNamespace>nhsuk.base_application</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
+  <!-- Uncomment to use header and footer Nuget package <ItemGroup>
     <PackageReference Include="NhsUk.header-footer-api-client" Version="2.1.0" />
-  </ItemGroup>
+  </ItemGroup> -->
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
