@@ -11,8 +11,11 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
-  <Target Name="Install frontend" BeforeTargets="Restore">
+  <Target Name="Build frontend" BeforeTargets="BeforeBuild">
     <Exec Command="npm install" />
     <Exec Command="npm run build" />
+    <ItemGroup>
+      <Compile Include="**/*$(DefaultLanguageSourceExtension)" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);$(BaseIntermediateOutputPath)**;$(BaseOutputPath)**;@(Compile)" />
+    </ItemGroup>
   </Target>
 </Project>
