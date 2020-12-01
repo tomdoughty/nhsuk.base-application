@@ -83,3 +83,6 @@ NHS.UK cookier banner is loaded in based on `CookieScriptUrl` set in `appsetting
 
 ### Docker
 To run the application with Docker you need to generate a Personal Access Token in Azure Devops and pass this to `docker-compose` to run the application.
+
+### Multi step form
+A lot of new services at NHS.UK are transactional. In this application a form is set up which stores the input to `TempData` and displays a summary page to check answers. This form also handles validation with `IValidateObject` as we have rewritten validation across many apps now. This is implemented with fully a accessible error summary, and error messages.
