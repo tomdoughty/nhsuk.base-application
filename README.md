@@ -73,6 +73,10 @@ The resulting JavaScript is saved in `wwwroot/dist/main.js`. _This file is not c
 ### NHS.UK header and footer Nuget package
 The header and footer are dynamically built by the `nhsuk.header-and-footer-client` Nuget package.
 
+NHS.UK header and footer Nuget package is available by [connecting to the Azure feed](https://dev.azure.com/nhsuk/nhsuk.header-footer-api-client/_packaging?_a=connect&feed=nhsuk.header.footer.api.client%40Release).
+
+If you are from outside NHS.UK and want to use this repository please use the [transactional header branch](https://github.com/tomdoughty/nhsuk.base-application/tree/transactional-header) which does not use the private Nuget package.
+
 ### Adobe analytics
 Adobe analytics script is loaded in based on `AdobeAnalyticsScriptUrl` set in `appsettings.json`.
 
