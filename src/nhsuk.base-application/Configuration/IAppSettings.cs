@@ -4,5 +4,6 @@
     {
         string CookieScriptUrl { get; }
         string AdobeAnalyticsScriptUrl { get; }
+        string ResultsApiEndpoint { get; }
     }
 }

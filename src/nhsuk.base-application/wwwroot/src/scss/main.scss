@@ -1,1 +1,9 @@
 ﻿@import './node_modules/nhsuk-frontend/packages/nhsuk';
+
+.nhsuk-list--border {
+    border-top: 1px solid #d8dde0;
+
+    li {
+        border-bottom: 1px solid #d8dde0;
+    }
+}

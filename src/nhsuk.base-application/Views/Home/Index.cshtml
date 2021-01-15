@@ -4,4 +4,34 @@
 }
 
 <h1>NHS.UK base application</h1>
-<p>View an <a asp-action="Address">example form</a> including validation where steps are stored in temp data.</p>
+
+<ul class="nhsuk-list nhsuk-list--border nhsuk-u-padding-top-4">
+    <li class="nhsuk-u-padding-bottom-4 nhsuk-u-margin-bottom-4">
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
+          @Html.ActionLink(
+              "Multistep form",
+              "Address",
+              "ExampleForm"
+          )
+        </h2>
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-0">
+          Multi step form including session storage, validation, and summary page. 
+        </p>
+    </li>
+    <li class="nhsuk-u-padding-bottom-4 nhsuk-u-margin-bottom-4">
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-4">
+          @Html.ActionLink(
+              "Results from API",
+              "ApiResult",
+              "ExampleAsync",
+              new {
+                  org = "nhsuk"
+              },
+              null
+          )
+        </h2>
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-0">
+          Page of results built from a request to GitHub API. Change the <code>org</code> query parameter to see different results.
+        </p>
+    </li>
+</ul>
