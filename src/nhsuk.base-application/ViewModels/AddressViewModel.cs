@@ -32,7 +32,7 @@ namespace nhsuk.base_application.ViewModels
                 yield return new ValidationResult("Your address must include a town or city", new[] { "Town" });
             }
 
-            if (string.IsNullOrWhiteSpace(Line1))
+            if (string.IsNullOrWhiteSpace(Postcode))
             {
                 yield return new ValidationResult("Your address must include a postcode", new[] { "Postcode" });
             }

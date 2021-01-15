@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Question = "Example form start page";
+    ViewBag.Description = "Example form start page";
+}
+@model AddressViewModel
+
+<h1>Example form start page</h1>
+
+<p>When viewing this page a fresh session is created. If any other page is navigated to and there is no session they will redirect to this page.</p>
+
+@Html.ActionLink(
+    "Start",
+    "Address",
+    "ExampleForm",
+    null,
+    new { @class = "nhsuk-button" }
+)

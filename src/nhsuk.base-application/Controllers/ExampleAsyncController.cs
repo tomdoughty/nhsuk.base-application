@@ -21,7 +21,7 @@ namespace nhsuk.base_application.Controllers
 
         [Route("example-async")]
         [HttpGet]
-        public async Task<IActionResult> ApiResult(string org)
+        public async Task<IActionResult> Index(string org)
         {
             List<Result> results = await _resultsRepository.GetResults(org);
 

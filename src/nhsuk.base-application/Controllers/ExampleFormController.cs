@@ -20,10 +20,9 @@ namespace nhsuk.base_application.Controllers
 
         }
 
-        [ServiceFilter(typeof(RedirectEmptySessionData))]
         [Route("example-form")]
         [HttpGet]
-        public IActionResult Address()
+        public IActionResult Index()
         {
             TempData.Clear();
             var userSessionData = new UserSessionData();
@@ -66,14 +65,22 @@ namespace nhsuk.base_application.Controllers
 
             TempData.Set(userSessionData);
 
-            userSessionData = TempData.Get<UserSessionData>();
+            return View();
+        }
+
+        [ServiceFilter(typeof(RedirectEmptySessionData))]
+        [Route("example-form/address")]
+        [HttpGet]
+        public IActionResult Address()
+        {
+            UserSessionData userSessionData = TempData.Get<UserSessionData>();
             AddressViewModel viewModel = userSessionData.Address;
 
             return View(viewModel);
         }
 
         [ServiceFilter(typeof(RedirectEmptySessionData))]
-        [Route("example-form")]
+        [Route("example-form/address")]
         [HttpPost]
         public IActionResult Address(AddressViewModel model)
         {
