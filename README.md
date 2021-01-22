@@ -99,3 +99,7 @@ A lot of new services at NHS.UK are transactional. This form will store input in
 https://nhsuk-base-application-dev-uks.azurewebsites.net/example-async?org=nhsuk
 
 This page gets an organisation's repositories from GitHub API and displays them on the page.
+
+## Licence
+
+The codebase is released under the MIT Licence, unless stated otherwise. This covers both the codebase and any sample code in the documentation. The documentation is © Crown copyright and available under the terms of the Open Government 3.0 licence.
