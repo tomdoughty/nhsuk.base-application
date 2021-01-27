@@ -11,7 +11,7 @@ A .NET project which include some of the common things needed at NHS.UK.
 ### ASP .NET Core web application
 - ASP .NET Core MVC Views using .NET 3.1 Framework
 - NHS.UK frontend library
-- NHS.UK header and footer Nuget package
+- NHS.UK header and footer Nuget package ([on this branch](https://github.com/tomdoughty/nhsuk.base-application/tree/with-nhsuk-header-api))
 
 ### NUnit test project
 Setup for NUnit unit tests.
@@ -69,11 +69,9 @@ Any custom ES2015 JavaScript can be added or imported into this file.
 The Gulp tasks transpile this file into ES5 JavaScript using Babel and minify it for production. The resulting JavaScript is saved in `wwwroot/dist/main.js`. _This file is not commited to the repository_.
 
 ### NHS.UK header and footer Nuget package
-The header and footer are dynamically built by the `nhsuk.header-and-footer-client` Nuget package.
+The header and footer can be dynamically built by the `nhsuk.header-and-footer-client` Nuget package. If this is a feature you would like then an example implementation is [on this branch](https://github.com/tomdoughty/nhsuk.base-application/tree/with-nhsuk-header-api).
 
-NHS.UK header and footer Nuget package is available by [connecting to the Azure feed](https://dev.azure.com/nhsuk/nhsuk.header-footer-api-client/_packaging?_a=connect&feed=nhsuk.header.footer.api.client%40Release).
-
-If you are from outside NHS.UK and want to use this repository please use the [transactional header branch](https://github.com/tomdoughty/nhsuk.base-application/tree/transactional-header) which does not use the private Nuget package.
+This takes a bit of configuration hence it not being in the main branch. NHS.UK header and footer Nuget package is available by [connecting to the Azure feed](https://dev.azure.com/nhsuk/nhsuk.header-footer-api-client/_packaging?_a=connect&feed=nhsuk.header.footer.api.client%40Release).
 
 ### Adobe analytics
 Adobe analytics script is loaded in based on `AdobeAnalyticsScriptUrl` set in `appsettings.json`.
