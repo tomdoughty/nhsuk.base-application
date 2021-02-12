@@ -6,7 +6,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args: 
-        nuget_pat: ${NUGET_PAT}
+      # Pass Azure personal access token if wanting to use NHS.UK header and footer package
+      # args: 
+        # nuget_pat: ${NUGET_PAT}
     ports:
       - 8080:80

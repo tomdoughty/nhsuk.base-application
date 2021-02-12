@@ -11,11 +11,11 @@ WORKDIR /app
 # Copy all files
 COPY src/nhsuk.base-application/ .
 
-# Setup Artifact Credential to access Azure artifacts
-ARG nuget_pat
-ENV NUGET_CREDENTIALPROVIDER_SESSIONTOKENCACHE_ENABLED true
-ENV VSS_NUGET_EXTERNAL_FEED_ENDPOINTS '{"endpointCredentials":[{"endpoint":"https://pkgs.dev.azure.com/nhsuk/nhsuk.header-footer-api-client/_packaging/nhsuk.header.footer.api.client/nuget/v3/index.json","username":"notNeededWithPAT","password": "'${nuget_pat}'"}]}'
-RUN wget -O - https://raw.githubusercontent.com/Microsoft/artifacts-credprovider/master/helpers/installcredprovider.sh  | bash
+# Uncomment to setup Artifact Credential to access Azure artifacts - needed for NHS.UK header and footer
+# ARG nuget_pat
+# ENV NUGET_CREDENTIALPROVIDER_SESSIONTOKENCACHE_ENABLED true
+# ENV VSS_NUGET_EXTERNAL_FEED_ENDPOINTS '{"endpointCredentials":[{"endpoint":"https://pkgs.dev.azure.com/nhsuk/nhsuk.header-footer-api-client/_packaging/nhsuk.header.footer.api.client/nuget/v3/index.json","username":"notNeededWithPAT","password": "'${nuget_pat}'"}]}'
+# RUN wget -O - https://raw.githubusercontent.com/Microsoft/artifacts-credprovider/master/helpers/installcredprovider.sh  | bash
 
 # Publish
 RUN dotnet publish *.csproj --configfile nuget.config -c Release -o out

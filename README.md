@@ -82,7 +82,13 @@ Adobe analytics `digitalData` object is built dynamically from application URL.
 NHS.UK cookier banner is loaded in based on `CookieScriptUrl` set in `appsettings.json`.
 
 ### Docker
-To run the application with Docker you need to generate a Personal Access Token in Azure Devops and pass this to `docker-compose` to run the application.
+Developing with Docker on .NET applications is dreadful unfortunately. It is very very slow at rebuilds and you would be better off using .NET CLI if you wish to avoid Visual Studio, that is what the Dockerfile is doing in the background for you anyway.
+
+Some features will not work with docker-compose as it is not running HTTPS out of the box. This requires some additional configuration on your own machine. Details can be found here https://thegreenerman.medium.com/set-up-https-on-local-with-net-core-and-docker-7a41f030fc76
+
+If you want to use the NHS.UK header and footer API you need to generate a Personal Access Token in Azure Devops and pass this to `docker-compose`.
+
+The main thing we use Docker for on these projects is to build an image, store it in Azure registry and deploy to Azure Kubernates Service.
 
 ## Examples
 
