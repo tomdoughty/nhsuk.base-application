@@ -1,8 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>nhsuk.base_application</RootNamespace>
+  </PropertyGroup>
+
+  <!-- Paths of time stamps file for use in incremental build. -->
+  <PropertyGroup>
+    <NpmInstallStampFile>node_modules/.install-stamp</NpmInstallStampFile>
   </PropertyGroup>
 
   <!--
@@ -25,12 +30,34 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
-  <Target Name="Build frontend" BeforeTargets="BeforeBuild">
+
+  <!--
+    Only run "npm install" if packages.json has been updated since the last time it was run.
+    Will always be run if $(NpmInstallStampFile) does not exist (e.g. the very first build).
+    Deleted output files won't trigger a build. Manually modified output files will not trigger a build.
+    Regeneration of output files can be forced via a rebuild (or clean then build).
+    If using the dotnet command line, the "no-incremental" flag must be set to do a "rebuild".
+    (Based on: https://stackoverflow.com/a/48020233)
+  -->
+  <Target Name="NpmInstall"
+          BeforeTargets="Build frontend"
+          Inputs="package.json"
+          Outputs="$(NpmInstallStampFile)">
     <Exec Command="npm install" />
+    <Touch Files="$(NpmInstallStampFile)" AlwaysCreate="true" />
+  </Target>
+
+  <Target Name="Build frontend" BeforeTargets="BeforeBuild">
     <Exec Command="npm run build" />
     <ItemGroup>
       <Compile Include="**/*$(DefaultLanguageSourceExtension)" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);$(BaseIntermediateOutputPath)**;$(BaseOutputPath)**;@(Compile)" />
     </ItemGroup>
+  </Target>
+
+  <Target Name="ResetNpmInstallStampFile"
+          AfterTargets="CoreClean">
+    <!-- Delete time stamp to force npm install to re-run on next build. -->
+    <Delete Files="$(NpmInstallStampFile)" />
   </Target>
 
 </Project>
