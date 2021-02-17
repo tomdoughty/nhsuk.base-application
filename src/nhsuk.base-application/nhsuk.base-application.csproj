@@ -5,6 +5,20 @@
     <RootNamespace>nhsuk.base_application</RootNamespace>
   </PropertyGroup>
 
+  <!--
+    Include frontend assets in the "fast up-to-date check". Otherwise project will be seen by msbuild as up-to-date if
+    only one of these files has been changed and will skip running the targets, including the build frontend target.
+    See https://jacobdixon.uk/2020/10/compile-scss-at-build-time-visual-studio
+  -->
+  <ItemGroup>
+    <UpToDateCheckInput Include="wwwroot/src/scss/**/*.scss" Set="css" />
+    <UpToDateCheckBuilt Include="wwwroot/dist/*.css" Set="css" />
+    <UpToDateCheckInput Include="wwwroot/src/js/**/*.js" Set="js" />
+    <UpToDateCheckBuilt Include="wwwroot/dist/*.js" Set="js" />
+    <UpToDateCheckInput Include="wwwroot/src/images/**/*" Set="images" />
+    <UpToDateCheckBuilt Include="wwwroot/dist/images/**/*" Set="images" />
+  </ItemGroup>
+
   <!-- Uncomment to use header and footer Nuget package <ItemGroup>
     <PackageReference Include="NhsUk.header-footer-api-client" Version="2.1.0" />
   </ItemGroup> -->
@@ -18,4 +32,5 @@
       <Compile Include="**/*$(DefaultLanguageSourceExtension)" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);$(BaseIntermediateOutputPath)**;$(BaseOutputPath)**;@(Compile)" />
     </ItemGroup>
   </Target>
+
 </Project>
