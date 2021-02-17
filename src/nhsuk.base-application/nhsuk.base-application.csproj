@@ -12,11 +12,13 @@
   </PropertyGroup>
 
   <!--
-    Frontend source files. Frontend build will only run if one of the files matched by the Include has been modified
-    since the last frontend build. Clean/Rebuild to force a frontend build.
+    Frontend build will only run if one of the files matched by the Includes has been modified since the last
+    frontend build. Clean/Rebuild to force a frontend build.
   -->
   <ItemGroup>
     <FrontendInputs Include="wwwroot/src/**/*" />
+    <!-- Assumed that a change to the npm packages could change the compiled files. -->
+    <FrontendInputs Include="package.json" />
   </ItemGroup>
 
   <!--
@@ -57,7 +59,8 @@
   </Target>
 
   <!--
-    Only build frontend if at least one of the frontend source files was modified since the last frontend build.
+    Only build frontend if at least one of the frontend source files was modified since the last frontend build,
+    or if packages.json has been updated since the last frontend build.
     Will always be run if $(FrontendBuildStampFile) does not exist (e.g. the very first build).
     Deleted source or output files won't trigger a build. Manually modified output files will not trigger a build.
     Regeneration of output files can be forced via a rebuild (or clean then build).
