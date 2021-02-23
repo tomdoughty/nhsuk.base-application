@@ -35,7 +35,8 @@ We always use base paths for applications so it is easier for infra to handle ou
 
 
 ### Build
-Building the web application will automatically run `npm install && npm run build`.
+Building the web application will automatically run `npm install && npm run build`. An incremental build is used so that these commands are only run if relevant files are modified, e.g. `main.scss` is modified.  
+The commands can be forced to run by a Rebuild in Visual Studio or running `dotnet --no-incremental` if using the CLI.
 
 The `npm install` command installs all NPM dependencies listed within the `package.json`.
 
