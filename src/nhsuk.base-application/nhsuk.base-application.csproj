@@ -63,16 +63,9 @@
     Regeneration of output files can be forced via a rebuild (or clean then build).
     If using the dotnet command line, the "no-incremental" flag must be set to do a "rebuild".
   -->
-  <Target Name="Build frontend" BeforeTargets="Build other" Inputs="@(FrontendInputs)" Outputs="$(FrontendBuildStampFile)">
+  <Target Name="Build frontend" BeforeTargets="BeforeBuild" Inputs="@(FrontendInputs)" Outputs="$(FrontendBuildStampFile)">
     <Exec Command="npm run build" />
     <Touch Files="$(FrontendBuildStampFile)" AlwaysCreate="true" />
-  </Target>
-
-  <!-- Moved out of "Build frontend", as assumed this is needed for every build. -->
-  <Target Name="Build other" BeforeTargets="BeforeBuild">
-    <ItemGroup>
-      <Compile Include="**/*$(DefaultLanguageSourceExtension)" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder);$(BaseIntermediateOutputPath)**;$(BaseOutputPath)**;@(Compile)" />
-    </ItemGroup>
   </Target>
 
   <Target Name="ResetNpmInstallStampFile" AfterTargets="CoreClean">
